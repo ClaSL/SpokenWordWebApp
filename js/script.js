@@ -30,26 +30,26 @@ function removeOldEvents(){
 }
 
 function getAllEvents(){
-    fetch("http://marijabelautdinova.com/wp/wp-json/wp/v2/events?_embed&per_page=11")
+    fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/events?_embed&per_page=11")
     .then(res=>res.json())
     .then(showEvents);
 }
 
 function getEventsByCategory(id){
-    fetch("http://marijabelautdinova.com/wp/wp-json/wp/v2/events?_embed&tags="+id)
+    fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/events?_embed&tags="+id)
     .then(res=>res.json())
     .then(showEvents);
 };
 
 function getSingleEventById(myId){
     console.log(myId);
-    fetch("http://marijabelautdinova.com/wp/wp-json/wp/v2/events/"+myId+"/?_embed")
+    fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/events/"+myId+"/?_embed")
     .then(res=>res.json())
     .then(showSingleEvent);
 };
 
 function getMenu(){
-  fetch("http://marijabelautdinova.com/wp/wp-json/wp/v2/tags")
+  fetch("http://www.blackbirdmedia.de/wordpress/v2/tags")
   .then(e=>e.json())
   .then(showMenu);
 };
