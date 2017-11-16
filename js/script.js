@@ -30,7 +30,7 @@ function removeOldEvents(){
 }
 
 function getAllEvents(){
-    fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/events?_embed&per_page=11")
+    fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/events?_embed&per_page=100")
     .then(res=>res.json())
     .then(showEvents);
 }
@@ -49,7 +49,7 @@ function getSingleEventById(myId){
 };
 
 function getMenu(){
-  fetch("http://www.blackbirdmedia.de/wordpress/v2/tags")
+  fetch("http://www.blackbirdmedia.de/wordpress/wp-json/wp/v2/tags")
   .then(e=>e.json())
   .then(showMenu);
 };
@@ -120,7 +120,7 @@ function showEvents(data){
         img.setAttribute("src", theEvent._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url);
 
         startingTime.textContent = theEvent.acf.starting_time;
-        smallDescription.textContent = theEvent.acf.small_description;
+        smallDescription.innerHTML = theEvent.acf.small_description;
         //doorsOpen.textContent = theEvent.acf.doors_open;
         //location.textContent = theEvent.acf.location;
         //facebookLink.setAttribute("href", theEvent.acf.facebook_link);
